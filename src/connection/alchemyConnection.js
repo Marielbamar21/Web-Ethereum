@@ -1,5 +1,6 @@
 import { AlchemyProvider} from "ethers";
 import { config } from "../../config/config/index.js";
+import { transactionService } from "../api/transaction/transactionService.js";
 
 
 export const alchemySubscription = () => {
@@ -12,6 +13,7 @@ export const alchemySubscription = () => {
             const transactions = block.transactions;
             transactions.forEach(async(element) => {
                                                     const transaction = await provider.getTransaction(element);
+                                                    await transactionService.createTransaction(transaction)
                                                     console.log(transaction);
                 
                                                 });

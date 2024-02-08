@@ -13,7 +13,7 @@ const database = async () => {
             return Promise.resolve();
         }
     } catch (err) {
-        reject(err);
+        return Promise.reject(err);
     }
 };
 
