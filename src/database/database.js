@@ -1,15 +1,13 @@
 import mongoose from "mongoose";
 import { config } from "../../config/config/index.js";
-import { handleError } from "../common/errorHandlers.js";
 import { MongoMemoryServer } from "mongodb-memory-server"
 
-let mongodb
+let  mongodb = await MongoMemoryServer.create();
 
-export const database = {
-    
-    openDatabase : async () => {
+export const openDatabase = async () => {
     try {
-        mongodb = await MongoMemoryServer.create();
+
+       
         const uri = mongodb.getUri();
         if (mongoose.connection.readyState === 1) {
             console.log(`It's already connected to the database`);
@@ -22,18 +20,14 @@ export const database = {
     } catch (err) {
         return Promise.reject(err);
     }
-    },
-    closeDatabase : async(mongodb) => {
+    }
+export const closeDatabase = async() => {
 
         try{
-            if(mongodb){
                 await mongodb.stop();
-                console.log( 'database closed');
-            }
         }
         catch(err){
-           return Promise.reject(err);
+            console.log('Error al cerrar', err);
+            return Promise.reject(err);
         }
     }
-
-}

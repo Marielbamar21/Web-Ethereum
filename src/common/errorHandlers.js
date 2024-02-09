@@ -18,9 +18,8 @@ export const handleError = async (error, res) => {
     console.log(error);
   }
 export const handleResponse = (res, status, menssage_resp, data = {}) => {
-    console.log(status, " Estatus")
-    console.log(menssage_resp, " Mensaje")
-    console.log(data, " Datos")
+    console.log(status, " Status")
+    console.log(menssage_resp, " Message")
     res.status(status).json({
       message: menssage_resp,
       data: data

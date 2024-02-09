@@ -14,7 +14,8 @@ export const transactionController = {
                 if(to !== undefined) filter.to = to;
                 if(from !== undefined) filter.from = from;
                 const transactions = await  transactionService.getAllTransaction(filter);
-                handleResponse(res,200,message.message_success,transactions);
+                transactions.length == 0 ? handleResponse(res,200, message.message_transaction_empty) :handleResponse(res,200,message.message_success,transactions);
+                
 
         }
         catch(err){
