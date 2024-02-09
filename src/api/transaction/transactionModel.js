@@ -1,16 +1,6 @@
 import { mongoose , Schema} from "mongoose";
 
-const signatureSchema = new Schema({
-                compactSerialized : String,
-                legacyChainId : BigInt, 
-                networkV : BigInt,
-                r : String,
-                s : String,
-                serialized : String,
-                v : Number,
-                yParity : Number,
-                yParityAndS : String
-})
+
 
 const transactionSchema = new Schema({
             blockNumber: { type : Number, required : true},
@@ -28,7 +18,6 @@ const transactionSchema = new Schema({
             data: { type: String , default : "not data"},
             value: { type: BigInt , default : null},
             chainId: {type : BigInt , default : null},
-            signature: signatureSchema,
             accessList: {type: Array , default:null},
             dateCreation : {type : Date , default : Date.now}
 

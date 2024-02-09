@@ -1,0 +1,29 @@
+export const handleError = async (error, res) => {
+  
+    res.status(500).json({
+      status: 'error',
+      message: 'SERVER ERROR',
+      error: error.toString()
+    })
+    console.log(error)
+  }
+
+  export const handleErrorValidator = async (error, res) => {
+  
+    res.status(500).json({
+      status: 'error',
+      message: 'SERVER ERROR : VALIDATOR ERROR',
+      error: error.toString()
+    })
+    console.log(error);
+  }
+export const handleResponse = (res, status, menssage_resp, data = {}) => {
+    console.log(status, " Estatus")
+    console.log(menssage_resp, " Mensaje")
+    console.log(data, " Datos")
+    res.status(status).json({
+      message: menssage_resp,
+      data: data
+    })
+  }
+  

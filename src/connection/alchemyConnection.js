@@ -11,10 +11,11 @@ export const alchemySubscription = () => {
             console.log(`Nuevo bloque recibido. Bloque numero ${blockNumber} `);
             const block = await provider.getBlock(blockNumber);
             const transactions = block.transactions;
+            console.log(transactions.length);
             transactions.forEach(async(element) => {
                                                     const transaction = await provider.getTransaction(element);
                                                     await transactionService.createTransaction(transaction)
-                                                    console.log(transaction);
+                                                    //console.log(transaction);
                 
                                                 });
         } catch (error) {
