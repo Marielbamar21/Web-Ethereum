@@ -41,13 +41,11 @@ After all project libraries have been successfully installed, the command to sta
 
 ```
 npm run dev
-
 ```
 The encoded path for querys is:
 
 ```
 GET /web-ethereum/transactions/
-
 ```
 
 The filters are passed by querys. 
@@ -59,17 +57,14 @@ hash = value =>  The transaction hash is a unique identifier for a specific tran
 
 ```
 to = value => Represents the recipient address of the transaction. Receives a valid hash that starts with the characters '0x' at the beginning of the string, and the rest of the string consists of hexadecimal values.
-
 ```
 
 ```
 from = value => Represents the sender address of the transaction. Receives a valid hash that starts with the characters '0x' at the beginning of the string, and the rest of the string consists of hexadecimal values.
-
 ```
 
 ```
 blockNumber = value =>  Indicates the block number in which the transaction is included on the Ethereum blockchain. Receives a number.
-
 ```
 
 The API is validated to only accept these filters.If other fields are used, a 400 error will be received
