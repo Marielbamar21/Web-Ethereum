@@ -2,7 +2,9 @@ import { AlchemyProvider} from "ethers";
 import { config } from "../../config/config/index.js";
 import { transactionService } from "../api/transaction/transactionService.js";
 
-const provider = new AlchemyProvider('goerli', config.alchemy_key); 
+const testNetwork = 'goerly'
+
+const provider = new AlchemyProvider('mainnet', config.alchemy_key); 
 
 export const alchemySubscription = () => {
     provider.on('block', async (blockNumber, ) => {
