@@ -33,4 +33,3 @@ process.on('SIGINT', async () => {
                                 });
 
 alchemySubscription();
-

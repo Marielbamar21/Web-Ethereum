@@ -2,10 +2,10 @@ import { transactionModel } from "./transactionModel.js";
 
 
 export const transactionService = {
-    createTransaction : async(body) =>{
+    createTransaction : async(body=[]) =>{
         try{
-            const newTransaction = new transactionModel(body);
-            const transaction = await newTransaction.save();
+            
+            const transaction = await transactionModel.insertMany(body);
             return transaction;
         }
         catch(err){
